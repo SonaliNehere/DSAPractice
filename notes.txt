@@ -1,0 +1,113 @@
+bubble sort - O(n^2) - at each step lager element will push at last, adjacent checking and swapping
+
+selection sort - O(n^2) - at each step small element will push at first, does less memory write and
+				Also does less number of swaps compare to quick, merge, insertion. but takes more time.
+				does not use extra memory
+				
+shell sort - does not use extra memory O(1) extra space ,
+			 worst case -  O(n^2) time , optimized to O(n(logn)^2) time
+				 			 
+insertion sort - O(n^2) - maintain two parts - sorted and unsorted, put current element in sorted part 
+				at right place. does not use extra memory
+				its best when array size is small. e.g. 10 to 20
+				
+quick sort - O(n^2) worst case, O(logn) extra space , fastest algorithm
+
+merge sort - Thita(nlogn) , O(n) extra space , its stable, efficient for linked list also
+
+A brute force algorithm solves a problem through exhaustion: it goes through all possible choices
+ until a solution is found. The time complexity of a brute force algorithm is often proportional to 
+ the input size. Brute force algorithms are simple and consistent, but very slow.
+ e.g find 3 digit lock of numbers.
+ 
+ A divide-and-conquer algorithm recursively breaks down a problem into two or more sub-problems of the
+  same or related type, until these become simple enough to be solved directly. The solutions to the 
+  sub-problems are then combined to give a solution to the original problem.
+  e.g Merge Sort, Quick Sort, Binary Search
+
+ A greedy algorithm is an approach for solving a problem by selecting the best option available at 
+ the moment. It doesn't worry whether the current best result will bring the overall optimal result.
+ 
+ Dynamic programming is a technique that breaks the problems into sub-problems, and saves the result 
+ for future purposes so that we do not need to compute the result again. The subproblems are optimized 
+ to optimize the overall solution.
+ e.g. shortest path problem
+ 
+ Array advantage - cache friendly -> processor prefetch nearby items in cache according to cache capacity
+ 
+ stable sorting algorithms - bubble, insertion, merge
+ unstable sorting algorithms - selection, quick, heap
+ 
+ Lomuto partition - This algorithm works by assuming the pivot element as the last element. If any other
+ 	 element is given as a pivot element then swap it first with the last element. Now initialize two
+ 	  variables i as low-1 and j also low,  iterate over the array (j=low to hi - 1)  and increment i 
+ 	  when arr[j] <= pivot 
+ 	  and swap arr[i] with arr[j] otherwise increment only j. After coming out from the loop swap 
+ 	  arr[i+1] with arr[hi]. This i stores the pivot element.
+ 	  position of pivot is correct
+ 	  O(n) - time , O(1) - extra space
+ 	  
+Hoare’s Partition - This  Scheme works by initializing two indexes that start at two ends, the two 
+	indexes move toward each other until an inversion is (A smaller value on the left side and greater
+	 value on the right side) found. When an inversion is found, two values are swapped and the process 
+	 is repeated.
+	 This function takes first element as pivot, and places all the elements smaller than the pivot on the
+     left side and all the elements greater than the pivot on the right side. It returns the index of
+     the last element on the smaller side.
+     position of pivot may or may not correct. partition is correct.
+     Hoare’s Partition is 3 times faster than the Lomuto partition 
+      O(n) - time , O(1) - extra space
+      
+Dutch National Flag Algorithm - sort array with three types 
+								 O(n) - time , O(1) - extra space
+								 
+Cycle sort - minimize the memory writes
+			this algo fixing elememts in form of cycle , so it is called cycle sort. 
+			  O(n^2) - time
+			  
+Heap sort - use max heap(value of node is greater than or equal to children) data structure.
+ 	  		  O(nlogn) - time in all cases
+ 	  		
+Count sort -  used for limited range , O(n+k) time,  k is range
+
+Radix sort - 	efficient for high range n^2, n^3, etc also.
+				use count sort as subroutine
+				O(n) time,  O(n) - extra space
+				
+Bucket sort - used when data is uniformly distributed. e.g range from 1.0 to 2.0
+
+ hybrid algorithm - tim sort , intro sort	  
+ 	  
+ 	  
+ ------------------------Hashing------------------	
+ Hashing is a popular technique for storing and retrieving data as fast as possible.  
+ use hash function in hashing 
+ 
+ Direct Address Table - disadvantage- can't handle keys have large universe, floating point numbers, string.  
+ 	  
+ Hashing - uses array of linked list. 
+ 
+ Chaining - way to handle collision in hashing  - use array of linked list or self balancing BST
+ 		  - better performance compare to open addressing 
+ 		  
+ Open Addressing - use single array to handle collision in hashing  .
+ 		linear probing - linearly search for next available slot if collision occur. cause clustering 
+ 							problem
+ 		quadratic probing - cause secondary clustering problem
+ 							
+ Double Hashing - use two hash functions  
+ 
+ Prefix sum technique
+ 
+ ------Bst--
+ java , c++ treeset, treemap uses red black tree a self balancing BST.
+ 
+ =====
+ Kadens algorithm - amazon interview
+ 
+ 
+ 	  
+ 	  
+ 	  
+ 	  
+ 	  
