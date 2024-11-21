@@ -63,19 +63,51 @@ public class DoubleEndedLinkedList {
 			currentPosition++;
 		}
 
-		if(current.next != null) {
+		if (current.next != null) {
 			newNode.next = current.next;
 			newNode.prev = current;
 			current.next.prev = newNode;
 			current.next = newNode;
-		}
-		else {
+		} else {
 			newNode.next = null;
 			newNode.prev = current;
 			current.next = newNode;
 		}
 		// 0 1 2 3 4 5
-		//      7
+		// 7
+	}
+
+	public static void deleteNode(int val) {
+		if(head == null) {
+			System.out.println("List is empty");
+			return;
+		}
+		
+		if(head.next == null) {
+			head = null;
+			return;
+		}
+		
+		if(head.val == val) {
+			head = head.next;
+			head.prev = null;
+			return;
+		}
+		
+		TwoWayNode current = head;
+		TwoWayNode prev = head;
+		while(current.val != val && current.next != null) {
+			prev = current;
+			current = current.next;
+		}
+		if(current.next == null) {
+			prev.next = null;
+		}else {
+			prev.next = current.next;
+			current.next.prev = prev;
+		}
+		
+		
 	}
 
 	public static void traverse() {
@@ -84,23 +116,39 @@ public class DoubleEndedLinkedList {
 			System.out.println(current.val + " ");
 			current = current.next;
 		}
+	}
 
+	public static int findLength() {
+		int length = 0;
+		if (head == null) {
+			return length;
+		}
+
+		TwoWayNode current = head;
+		while (current != null) {
+			length++;
+			current = current.next;
+		}
+		return length;
 	}
 
 	public static void main(String[] args) {
 
 //		insertAtEnd(0);
-//		insertAtEnd(50);
-//		insertAtBegin(20);
-//		insertAtBegin(10);
+//		insertAtEnd(500);
+//		insertAtBegin(200);
+//		insertAtBegin(100);
 //		traverse();
+//		System.out.println("length : " + findLength());
 //
 //		insertAtEnd(30);
 //		insertAtEnd(40);
 //		traverse();
+//		System.out.println("length : " + findLength());
 //
-//		insertAtAnyPosition(100, 3);
+//		insertAtAnyPosition(1000, 3);
 //		traverse();
+//		System.out.println("length : " + findLength());
 
 		insertAtEnd(0);
 		insertAtEnd(10);
@@ -109,10 +157,28 @@ public class DoubleEndedLinkedList {
 		insertAtEnd(40);
 		insertAtEnd(50);
 		traverse();
+		findLength();
+		System.out.println("length : " + findLength());
 
 		insertAtAnyPosition(70, 4);
 		insertAtAnyPosition(80, 7);
 		traverse();
+		System.out.println("length : " + findLength());
+		
+		System.out.println("deleteNode(70) : ");
+		deleteNode(70);
+		traverse();
+		System.out.println("length : " + findLength());
+		
+		System.out.println("deleteNode(0) : ");
+		deleteNode(0);
+		traverse();
+		System.out.println("length : " + findLength());
+
+		System.out.println("deleteNode(80) : ");
+		deleteNode(80);
+		traverse();
+		System.out.println("length : " + findLength());
 
 	}
 }
