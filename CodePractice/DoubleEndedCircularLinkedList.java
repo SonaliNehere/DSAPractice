@@ -15,7 +15,7 @@ class TwoWayNode1 {
 public class DoubleEndedCircularLinkedList {
 	static TwoWayNode1 head;
 
-	public static void insertAtBegin(int val) {
+	public static void insertAtHead(int val) {
 		TwoWayNode1 newNode = new TwoWayNode1(val);
 
 		if (head == null) {
@@ -34,7 +34,7 @@ public class DoubleEndedCircularLinkedList {
 		// 0 1 2 3
 	}
 
-	public static void insertAtEnd(int val) {
+	public static void insertAtTail(int val) {
 		TwoWayNode1 newNode = new TwoWayNode1(val);
 
 		if (head == null) {
@@ -51,7 +51,13 @@ public class DoubleEndedCircularLinkedList {
 
 	}
 
-	public static void insertAtAnyPosition(int val, int position) {
+	public static void insertAtPosition(int val, int position) {
+
+		if (position < 0) {
+			System.out.println("Invalid position.");
+			return;
+		}
+
 		TwoWayNode1 newNode = new TwoWayNode1(val);
 
 		if (head == null) {
@@ -62,7 +68,7 @@ public class DoubleEndedCircularLinkedList {
 		}
 
 		if (position == 0) {
-			insertAtBegin(val);
+			insertAtHead(val);
 			return;
 		}
 
@@ -80,38 +86,43 @@ public class DoubleEndedCircularLinkedList {
 		// 0 1 2 3 4 5
 		// 6
 	}
-	
+
 	public static void deleteNode(int val) {
-		if(head == null) {
+		if (head == null) {
 			System.out.println("List is empty ");
 			return;
 		}
-		
-		if(head.val == val) {
-			head.next.prev = head.prev;
-			head.prev.next = head.next;
-			head = head.next;
+
+		if (head.val == val) {
+			if (head.next == head) {
+			    head = null;
+			}
+			else {
+				head.next.prev = head.prev;
+				head.prev.next = head.next;
+				head = head.next;
+			}
 			return;
 		}
 		
 		TwoWayNode1 current = head;
-		while(current.next != head && current.val != val) {
+		while (current.next != head && current.val != val) {
 			current = current.next;
 		}
-		
-		if(current.val == val) {
+
+		if (current.val == val) {
 			current.prev.next = current.next;
 			current.next.prev = current.prev;
-		}
-		else {
+		} else {
 			System.out.println("node not found");
 		}
-		
+
 	}
 
 	public static void traverse() {
+
 		if (head == null) {
-			System.out.println("List is empty");
+			System.out.println("List is empty.");
 			return;
 		}
 
@@ -145,34 +156,34 @@ public class DoubleEndedCircularLinkedList {
 //		traverse();
 //		System.out.println("length : " + findLength());
 
-		insertAtBegin(30);
+		insertAtHead(30);
 		traverse();
 		System.out.println("length : " + findLength());
 
-		insertAtBegin(20);
-		traverse();
-		System.out.println("length : " + findLength());
-
-		insertAtBegin(10);
-		traverse();
-		System.out.println("length : " + findLength());
-
-		insertAtEnd(40);
-		traverse();
-		System.out.println("length : " + findLength());
-
-		insertAtEnd(50);
-		traverse();
-		System.out.println("length : " + findLength());
-
-		insertAtAnyPosition(999, 1);
-		traverse();
-		System.out.println("length : " + findLength());
-
-//		System.out.println("delete 50 : ");
-//		deleteNode(50);
+//		insertAtHead(20);
 //		traverse();
 //		System.out.println("length : " + findLength());
+//
+//		insertAtHead(10);
+//		traverse();
+//		System.out.println("length : " + findLength());
+//
+//		insertAtTail(40);
+//		traverse();
+//		System.out.println("length : " + findLength());
+//
+//		insertAtTail(50);
+//		traverse();
+//		System.out.println("length : " + findLength());
+//
+//		insertAtPosition(999, 1);
+//		traverse();
+//		System.out.println("length : " + findLength());
+
+		System.out.println("delete 30 : ");
+		deleteNode(30);
+		traverse();
+		System.out.println("length : " + findLength());
 //		
 //		System.out.println("delete 50 : ");
 //		deleteNode(50);

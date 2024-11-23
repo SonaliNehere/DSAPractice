@@ -15,7 +15,7 @@ public class CircularLinkedList {
 	static Node1 head;
 	// 0 1 2 3 4
 
-	public static void insertAtBegin(int val) {
+	public static void insertAtHead(int val) {
 		Node1 newNode = new Node1(val);
 
 		if (head == null) {
@@ -33,7 +33,7 @@ public class CircularLinkedList {
 		current.next = head;
 	}
 
-	public static void insertAtEnd(int val) {
+	public static void insertAtTail(int val) {
 		Node1 newNode = new Node1(val);
 		if (head == null) {
 			head = newNode;
@@ -48,7 +48,13 @@ public class CircularLinkedList {
 		newNode.next = head;
 	}
 
-	public static void insertAtAnyPosition(int val, int position) {
+	public static void insertAtPosition(int val, int position) {
+
+		if (position < 0) {
+			System.out.println("Invalid position.");
+			return;
+		}
+
 		Node1 newNode = new Node1(val);
 
 		if (head == null) {
@@ -58,7 +64,7 @@ public class CircularLinkedList {
 		}
 
 		if (position == 0) {
-			insertAtBegin(val);
+			insertAtHead(val);
 			return;
 		}
 
@@ -85,12 +91,19 @@ public class CircularLinkedList {
 		Node1 prev = head;
 
 		if (head.val == val) {
-			while (current.next != head) {
-				current = current.next;
+			
+			if(head.next == head) {
+				head = null;
 			}
-			head = head.next;
-			current.next = head;
+			else {
+				while (current.next != head) {
+					current = current.next;
+				}
+				head = head.next;
+				current.next = head;
+			}
 			return;
+			
 		}
 
 		while (current.next != head && current.val != val) {
@@ -98,8 +111,8 @@ public class CircularLinkedList {
 			current = current.next;
 		}
 		if (current.val == val) {
-			if (current.next == null) {
-				prev.next = null;
+			if (current.next == head) {
+				prev.next = head;
 			} else {
 				prev.next = current.next;
 			}
@@ -113,6 +126,7 @@ public class CircularLinkedList {
 	public static void traverse() {
 
 		if (head == null) {
+			System.out.println("List is empty.");
 			return;
 		}
 
@@ -145,30 +159,35 @@ public class CircularLinkedList {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		insertAtBegin(30);
-		insertAtBegin(20);
-		insertAtBegin(10);
+		insertAtHead(30);
+		insertAtHead(20);
+		insertAtHead(10);
 		traverse();
 		System.out.println("length : " + findLength());
-
-		insertAtEnd(40);
-		insertAtEnd(50);
-		traverse();
-		System.out.println("length : " + findLength());
-
-		insertAtAnyPosition(400, 4);
-		traverse();
-		System.out.println("length : " + findLength());
-
-//		System.out.println("delete 200 : ");
-//		deleteNode(200);
+//
+//		insertAtTail(40);
+//		insertAtTail(50);
 //		traverse();
 //		System.out.println("length : " + findLength());
-//		
-//		System.out.println("delete 400 : ");
-//		deleteNode(400);
-//		traverse();
-//		System.out.println("length : " + findLength());
+
+		insertAtPosition(400, 4);
+		traverse();
+		System.out.println("length : " + findLength());
+
+		System.out.println("delete 100 : ");
+		deleteNode(100);
+		traverse();
+		System.out.println("length : " + findLength());
+		
+		System.out.println("delete 400 : ");
+		deleteNode(400);
+		traverse();
+		System.out.println("length : " + findLength());
+		
+		System.out.println("delete 10 : ");
+		deleteNode(10);
+		traverse();
+		System.out.println("length : " + findLength());
 
 	}
 

@@ -14,21 +14,21 @@ public class LinkedList {
 
 	static Node head;
 
-	public static void insertNodeAtStart(int val) {
+	public static void insertAtHead(int val) {
 
 		Node newNode = new Node(val);
 		newNode.next = head;
 		head = newNode;
 	}
 
-	public static void insertNodeAtEnd(int val) {
+	public static void insertAtTail(int val) {
 		Node newNode = new Node(val);
 
 		if (head == null) {
 			head = newNode;
 			return;
 		}
-		
+
 		Node current = head;
 		while (current.next != null) {
 //				System.out.println(current.val + " ");
@@ -38,7 +38,12 @@ public class LinkedList {
 
 	}
 
-	public static void insertAtAnyPosition(int val, int position) {
+	public static void insertAtPosition(int val, int position) {
+
+		if (position < 0) {
+			System.out.println("Invalid position.");
+			return;
+		}
 
 		Node newNode = new Node(val);
 
@@ -46,9 +51,9 @@ public class LinkedList {
 			head = newNode;
 			return;
 		}
-		
-		if(position == 0) {
-			insertNodeAtStart(val);
+
+		if (position == 0) {
+			insertAtHead(val);
 			return;
 		}
 
@@ -58,49 +63,52 @@ public class LinkedList {
 			currentPosition++;
 			current = current.next;
 		}
-		
-		if(current.next == null) {
+
+		if (current.next == null) {
 			newNode.next = null;
 			current.next = newNode;
-		}else {
+		} else {
 			newNode.next = current.next;
 			current.next = newNode;
 		}
-		
 
-		//0 1 2 3 4 5 6 7
+		// 0 1 2 3 4 5 6 7
 	}
 
 	public static void deleteNode(int val) {
-		if(head == null) {
+		if (head == null) {
 			System.out.println("List is empty ");
 			return;
 		}
-		
-		if(head.val == val) {
+
+		if (head.val == val) {
 			head = head.next;
 			return;
 		}
-		
+
 		Node current = head;
 		Node previous = head;
-		while(current.val != val && current.next !=null) {
+		while (current.val != val && current.next != null) {
 			previous = current;
 			current = current.next;
 		}
-		
-		if(current.val == val) {
+
+		if (current.val == val) {
 			previous.next = current.next;
-		}
-		else {
+		} else {
 			System.out.println("Node not found");
 		}
-		
-		
+
 		// 1 2 3 4 5 6
 	}
-	
+
 	public static void traverseList() {
+
+		if (head == null) {
+			System.out.println("List is empty.");
+			return;
+		}
+
 		Node current = head;
 		System.out.print("List nodes are :  ");
 		while (current != null) {
@@ -113,16 +121,16 @@ public class LinkedList {
 	public static int findLength() {
 		int length = 0;
 		Node current = head;
-		while(current != null) {
+		while (current != null) {
 			length++;
 			current = current.next;
 		}
-		
+
 		return length;
 	}
-	
+
 	public static void main(String[] args) {
-		
+
 //		insertAtAnyPosition(0, 10);
 //		traverseList();
 //		System.out.println("length : " + findLength());
@@ -136,13 +144,13 @@ public class LinkedList {
 //		traverseList();
 //		System.out.println("length : " + findLength());
 
-		insertNodeAtEnd(50);
-		insertNodeAtEnd(60);
-		insertNodeAtEnd(70);
+		insertAtTail(50);
+		insertAtTail(60);
+		insertAtTail(70);
 		traverseList();
 		System.out.println("length : " + findLength());
-		
-		insertAtAnyPosition(0, 1);
+
+		insertAtPosition(0, 1);
 		traverseList();
 
 //		insertAtAnyPosition(90, 4);
@@ -182,12 +190,10 @@ public class LinkedList {
 //		traverseList();
 //		System.out.println("length : " + findLength());
 //		
-//		System.out.println("delete node 60 ");
-//		deleteNode(60);
-//		traverseList();
-//		System.out.println("length : " + findLength());
-
-
+		System.out.println("delete node 70 ");
+		deleteNode(70);
+		traverseList();
+		System.out.println("length : " + findLength());
 
 	}
 

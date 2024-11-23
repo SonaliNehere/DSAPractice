@@ -16,7 +16,7 @@ class TwoWayNode {
 public class DoubleEndedLinkedList {
 	static TwoWayNode head;
 
-	public static void insertAtBegin(int val) {
+	public static void insertAtHead(int val) {
 
 		TwoWayNode newNode = new TwoWayNode(val);
 		if (head == null) {
@@ -31,7 +31,7 @@ public class DoubleEndedLinkedList {
 		// 1 2 3
 	}
 
-	public static void insertAtEnd(int val) {
+	public static void insertAtTail(int val) {
 		TwoWayNode newNode = new TwoWayNode(val);
 		if (head == null) {
 			head = newNode;
@@ -46,18 +46,24 @@ public class DoubleEndedLinkedList {
 		current.next = newNode;
 	}
 
-	public static void insertAtAnyPosition(int val, int position) {
+	public static void insertAtPosition(int val, int position) {
+
+		if (position < 0) {
+			System.out.println("Invalid position.");
+			return;
+		}
+
 		TwoWayNode newNode = new TwoWayNode(val);
 		if (head == null) {
 			head = newNode;
 			return;
 		}
 
-		if(position == 0) {
-			insertAtBegin(val);
+		if (position == 0) {
+			insertAtHead(val);
 			return;
 		}
-		
+
 		int currentPosition = 0;
 		TwoWayNode current = head;
 		TwoWayNode prev = head;
@@ -83,44 +89,49 @@ public class DoubleEndedLinkedList {
 	}
 
 	public static void deleteNode(int val) {
-		if(head == null) {
+		if (head == null) {
 			System.out.println("List is empty");
 			return;
 		}
-		
-		if(head.next == null) {
+
+		if (head.next == null) {
 			head = null;
 			return;
 		}
-		
-		if(head.val == val) {
+
+		if (head.val == val) {
 			head = head.next;
 			head.prev = null;
 			return;
 		}
-		
+
 		TwoWayNode current = head;
 		TwoWayNode prev = head;
-		while(current.val != val && current.next != null) {
+		while (current.val != val && current.next != null) {
 			prev = current;
 			current = current.next;
 		}
-		if(current.val == val ) {
-			if(current.next == null) {
+		if (current.val == val) {
+			if (current.next == null) {
 				prev.next = null;
-			}else {
+			} else {
 				prev.next = current.next;
 				current.next.prev = prev;
 			}
-		}
-		else {
+		} else {
 			System.out.println("Node not found ");
 		}
-		
+
 		// 1 2 3 4 5
 	}
 
 	public static void traverse() {
+
+		if (head == null) {
+			System.out.println("List is empty.");
+			return;
+		}
+
 		TwoWayNode current = head;
 		System.out.print("List nodes are :  ");
 		while (current != null) {
@@ -162,21 +173,21 @@ public class DoubleEndedLinkedList {
 //		traverse();
 //		System.out.println("length : " + findLength());
 
-		insertAtEnd(0);
-		insertAtEnd(10);
-		insertAtEnd(20);
-		insertAtEnd(30);
-		insertAtEnd(40);
-		insertAtEnd(50);
+		insertAtTail(0);
+		insertAtTail(10);
+		insertAtTail(20);
+		insertAtTail(30);
+		insertAtTail(40);
+		insertAtTail(50);
 		traverse();
 		findLength();
 		System.out.println("length : " + findLength());
 
-		insertAtAnyPosition(70, 10);
+		insertAtPosition(70, 10);
 //		insertAtAnyPosition(80, 7);
 		traverse();
 		System.out.println("length : " + findLength());
-		
+
 //		System.out.print("deleteNode(70) : ");
 //		deleteNode(70);
 //		traverse();
