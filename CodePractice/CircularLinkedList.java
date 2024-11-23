@@ -1,48 +1,59 @@
 package Practice;
 
+
+class Node1 {
+	int val;
+	Node1 next;
+
+	Node1(int val) {
+		this.val = val;
+		this.next = null;
+	}
+}
+
 public class CircularLinkedList {
 
-	static Node head;
+	static Node1 head;
 	// 0 1 2 3 4
 
 	public static void insertAtBegin(int val) {
-		Node newNode = new Node(val);
+		Node1 newNode1 = new Node1(val);
 
 		if (head == null) {
-			head = newNode;
+			head = newNode1;
 			head.next = head;
 			return;
 		}
 		// 0 1 2 3
-		newNode.next = head;
-		Node current = head;
+		newNode1.next = head;
+		Node1 current = head;
 		while (current.next != head) {
 			current = current.next;
 		}
-		head = newNode;
+		head = newNode1;
 		current.next = head;
 	}
 
 	public static void insertAtEnd(int val) {
-		Node newNode = new Node(val);
+		Node1 newNode1 = new Node1(val);
 		if(head == null) {
-			head = newNode;
+			head = newNode1;
 			head.next = head;
 		}
 		
-		Node current = head;
+		Node1 current = head;
 		while(current.next != head) {
 			current = current.next;
 		}
-		current.next = newNode;
-		newNode.next = head;
+		current.next = newNode1;
+		newNode1.next = head;
 	}
 
 	public static void insertAtAnyPosition(int val, int position) {
-		Node newNode = new Node(val);
+		Node1 newNode1 = new Node1(val);
 	
 		if(head == null) {
-			head = newNode;
+			head = newNode1;
 			head.next = head;
 			return;
 		}
@@ -53,19 +64,19 @@ public class CircularLinkedList {
 		}
 		
 		int currentPosition = 0;
-		Node current = head;
+		Node1 current = head;
 		while(current.next != head && currentPosition < position-1) {
 			currentPosition++;
 			current = current.next;
 		}
 		
 		if(current.next == null) {
-			newNode.next = null;
-			current.next = newNode;
+			newNode1.next = null;
+			current.next = newNode1;
 		}
 		else {
-			newNode.next = current.next;
-			current.next = newNode;
+			newNode1.next = current.next;
+			current.next = newNode1;
 		}
 		
 		// 0 1 2 3 4 5
@@ -77,8 +88,8 @@ public class CircularLinkedList {
 			return;
 		}
 		
-		Node current = head;
-		Node prev = head;
+		Node1 current = head;
+		Node1 prev = head;
 		
 		if(head.val == val) {
 			while(current.next != head) {
@@ -114,8 +125,8 @@ public class CircularLinkedList {
 			return;
 		}
 
-		Node current = head;
-		System.out.print("List nodes are :  ");
+		Node1 current = head;
+		System.out.print("List Nodes are :  ");
 		System.out.print(current.val + " ");
 		while (current.next != head) {
 			current = current.next;
@@ -132,7 +143,7 @@ public class CircularLinkedList {
 			return length;
 		}
 		
-		Node current = head;
+		Node1 current = head;
 		while(current.next != head) {
 			length++;
 			current = current.next;
