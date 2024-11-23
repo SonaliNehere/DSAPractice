@@ -116,6 +116,7 @@ public class DoubleEndedCircularLinkedList {
 		}
 
 		TwoWayNode1 current = head;
+		System.out.print("List nodes are :  ");
 		System.out.print(current.val + " ");
 		while (current.next != head) {
 			current = current.next;

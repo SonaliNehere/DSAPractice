@@ -39,7 +39,73 @@ public class CircularLinkedList {
 	}
 
 	public static void insertAtAnyPosition(int val, int position) {
-
+		Node newNode = new Node(val);
+	
+		if(head == null) {
+			head = newNode;
+			head.next = head;
+			return;
+		}
+		
+		if(position == 0) {
+			insertAtBegin(val);
+			return;
+		}
+		
+		int currentPosition = 0;
+		Node current = head;
+		while(current.next != head && currentPosition < position-1) {
+			currentPosition++;
+			current = current.next;
+		}
+		
+		if(current.next == null) {
+			newNode.next = null;
+			current.next = newNode;
+		}
+		else {
+			newNode.next = current.next;
+			current.next = newNode;
+		}
+		
+		// 0 1 2 3 4 5
+	}
+	
+	public static void deleteNode(int val) {
+		if(head == null) {
+			System.out.println("List is empty ");
+			return;
+		}
+		
+		Node current = head;
+		Node prev = head;
+		
+		if(head.val == val) {
+			while(current.next != head) {
+				current = current.next;
+			}
+			head = head.next;
+			current.next = head;
+			return;
+		}
+		
+		while(current.next != head && current.val != val) {
+			prev = current;
+			current = current.next;
+		}
+		if(current.val == val) {
+			if(current.next == null) {
+				prev.next = null;
+			}
+			else {
+				prev.next = current.next;
+			}
+		}
+		else {
+			System.out.println("Node not found ");
+		}
+		
+		// 1 2 3 4 5 
 	}
 
 	public static void traverse() {
@@ -49,6 +115,7 @@ public class CircularLinkedList {
 		}
 
 		Node current = head;
+		System.out.print("List nodes are :  ");
 		System.out.print(current.val + " ");
 		while (current.next != head) {
 			current = current.next;
@@ -86,6 +153,21 @@ public class CircularLinkedList {
 		insertAtEnd(50);
 		traverse();
 		System.out.println("length : " + findLength());
+		
+		insertAtAnyPosition(400, 1);
+		traverse();
+		System.out.println("length : " + findLength());
+		
+		System.out.println("delete 200 : ");
+		deleteNode(200);
+		traverse();
+		System.out.println("length : " + findLength());
+		
+		System.out.println("delete 400 : ");
+		deleteNode(400);
+		traverse();
+		System.out.println("length : " + findLength());
+	
 	}
 
 }

@@ -117,6 +117,7 @@ public class DoubleEndedLinkedList {
 
 	public static void traverse() {
 		TwoWayNode current = head;
+		System.out.print("List nodes are :  ");
 		while (current != null) {
 			System.out.print(current.val + " ");
 			current = current.next;
