@@ -64,15 +64,6 @@ public class LinkedList {
 		// 1 2 3 4 5 6 7
 	}
 
-	public static void traverseList() {
-		Node current = head;
-		System.out.println("List nodes are :  ");
-		while (current != null) {
-			System.out.println(current.val + " ");
-			current = current.next;
-		}
-	}
-
 	public static void deleteNode(int val) {
 		if(head == null) {
 			System.out.println("List is empty ");
@@ -90,9 +81,26 @@ public class LinkedList {
 			previous = current;
 			current = current.next;
 		}
-		previous.next = current.next;
+		
+		if(current.val == val) {
+			previous.next = current.next;
+		}
+		else {
+			System.out.println("Node not found");
+		}
+		
 		
 		// 1 2 3 4 5 6
+	}
+	
+	public static void traverseList() {
+		Node current = head;
+		System.out.print("List nodes are :  ");
+		while (current != null) {
+			System.out.print(current.val + " ");
+			current = current.next;
+		}
+		System.out.println();
 	}
 
 	public static int findLength() {
@@ -127,8 +135,8 @@ public class LinkedList {
 		traverseList();
 		System.out.println("length : " + findLength());
 		
-		insertAtAnyPosition(0, 3);
-		traverseList();
+//		insertAtAnyPosition(0, 3);
+//		traverseList();
 
 //		insertAtAnyPosition(90, 4);
 //		traverseList();
@@ -162,10 +170,16 @@ public class LinkedList {
 //		traverseList();
 //		System.out.println("length : " + findLength());
 //
-//		System.out.println("delete node 30 ");
-//		deleteNode(30);
-//		traverseList();
-//		System.out.println("length : " + findLength());
+		System.out.println("delete node 30 ");
+		deleteNode(30);
+		traverseList();
+		System.out.println("length : " + findLength());
+		
+		System.out.println("delete node 60 ");
+		deleteNode(60);
+		traverseList();
+		System.out.println("length : " + findLength());
+
 
 
 	}
