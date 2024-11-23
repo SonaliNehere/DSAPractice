@@ -53,11 +53,16 @@ public class DoubleEndedLinkedList {
 			return;
 		}
 
+		if(position == 0) {
+			insertAtBegin(val);
+			return;
+		}
+		
 		int currentPosition = 0;
 		TwoWayNode current = head;
 		TwoWayNode prev = head;
 
-		while (currentPosition < position - 1 && current != null) {
+		while (currentPosition < position - 1 && current.next != null) {
 			prev = current;
 			current = current.next;
 			currentPosition++;
@@ -167,30 +172,30 @@ public class DoubleEndedLinkedList {
 		findLength();
 		System.out.println("length : " + findLength());
 
-		insertAtAnyPosition(70, 4);
-		insertAtAnyPosition(80, 7);
+		insertAtAnyPosition(70, 10);
+//		insertAtAnyPosition(80, 7);
 		traverse();
 		System.out.println("length : " + findLength());
 		
-		System.out.print("deleteNode(70) : ");
-		deleteNode(70);
-		traverse();
-		System.out.println("length : " + findLength());
-		
-		System.out.print("deleteNode(0) : ");
-		deleteNode(0);
-		traverse();
-		System.out.println("length : " + findLength());
-
-		System.out.print("deleteNode(80) : ");
-		deleteNode(80);
-		traverse();
-		System.out.println("length : " + findLength());
-		
-		System.out.print("deleteNode(800) : ");
-		deleteNode(800);
-		traverse();
-		System.out.println("length : " + findLength());
+//		System.out.print("deleteNode(70) : ");
+//		deleteNode(70);
+//		traverse();
+//		System.out.println("length : " + findLength());
+//		
+//		System.out.print("deleteNode(0) : ");
+//		deleteNode(0);
+//		traverse();
+//		System.out.println("length : " + findLength());
+//
+//		System.out.print("deleteNode(80) : ");
+//		deleteNode(80);
+//		traverse();
+//		System.out.println("length : " + findLength());
+//		
+//		System.out.print("deleteNode(800) : ");
+//		deleteNode(800);
+//		traverse();
+//		System.out.println("length : " + findLength());
 
 	}
 }
