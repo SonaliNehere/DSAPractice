@@ -165,19 +165,19 @@ public class DoubleEndedCircularLinkedList {
 		traverse();
 		System.out.println("length : " + findLength());
 
-		insertAtAnyPosition(999, 5);
+		insertAtAnyPosition(999, 1);
 		traverse();
 		System.out.println("length : " + findLength());
 
-		System.out.println("delete 50 : ");
-		deleteNode(50);
-		traverse();
-		System.out.println("length : " + findLength());
-		
-		System.out.println("delete 50 : ");
-		deleteNode(50);
-		traverse();
-		System.out.println("length : " + findLength());
+//		System.out.println("delete 50 : ");
+//		deleteNode(50);
+//		traverse();
+//		System.out.println("length : " + findLength());
+//		
+//		System.out.println("delete 50 : ");
+//		deleteNode(50);
+//		traverse();
+//		System.out.println("length : " + findLength());
 
 	}
 
