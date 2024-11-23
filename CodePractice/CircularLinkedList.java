@@ -1,6 +1,5 @@
 package Practice;
 
-
 class Node1 {
 	int val;
 	Node1 next;
@@ -36,13 +35,13 @@ public class CircularLinkedList {
 
 	public static void insertAtEnd(int val) {
 		Node1 newNode = new Node1(val);
-		if(head == null) {
+		if (head == null) {
 			head = newNode;
 			head.next = head;
 		}
-		
+
 		Node1 current = head;
-		while(current.next != head) {
+		while (current.next != head) {
 			current = current.next;
 		}
 		current.next = newNode;
@@ -51,72 +50,64 @@ public class CircularLinkedList {
 
 	public static void insertAtAnyPosition(int val, int position) {
 		Node1 newNode = new Node1(val);
-	
-		if(head == null) {
+
+		if (head == null) {
 			head = newNode;
 			head.next = head;
 			return;
 		}
-		
-		if(position == 0) {
+
+		if (position == 0) {
 			insertAtBegin(val);
 			return;
 		}
-		
+
 		int currentPosition = 0;
 		Node1 current = head;
-		while(current.next != head && currentPosition < position-1) {
+		while (current.next != head && currentPosition < position - 1) {
 			currentPosition++;
 			current = current.next;
 		}
-		
-		if(current.next == null) {
-			newNode.next = null;
-			current.next = newNode;
-		}
-		else {
-			newNode.next = current.next;
-			current.next = newNode;
-		}
-		
+
+		newNode.next = current.next;
+		current.next = newNode;
+
 		// 0 1 2 3 4 5
 	}
-	
+
 	public static void deleteNode(int val) {
-		if(head == null) {
+		if (head == null) {
 			System.out.println("List is empty ");
 			return;
 		}
-		
+
 		Node1 current = head;
 		Node1 prev = head;
-		
-		if(head.val == val) {
-			while(current.next != head) {
+
+		if (head.val == val) {
+			while (current.next != head) {
 				current = current.next;
 			}
 			head = head.next;
 			current.next = head;
 			return;
 		}
-		
-		while(current.next != head && current.val != val) {
+
+		while (current.next != head && current.val != val) {
 			prev = current;
 			current = current.next;
 		}
-		if(current.val == val) {
-			if(current.next == null) {
+		if (current.val == val) {
+			if (current.next == null) {
 				prev.next = null;
-			}
-			else {
+			} else {
 				prev.next = current.next;
 			}
-		}
-		else {
+		} else {
 			System.out.println("Node not found ");
 		}
-		
-		// 1 2 3 4 5 
+
+		// 1 2 3 4 5
 	}
 
 	public static void traverse() {
@@ -139,46 +130,46 @@ public class CircularLinkedList {
 
 	public static int findLength() {
 		int length = 0;
-		if(head == null) {
+		if (head == null) {
 			return length;
 		}
-		
+
 		Node1 current = head;
-		while(current.next != head) {
+		while (current.next != head) {
 			length++;
 			current = current.next;
 		}
-		return length+1;
+		return length + 1;
 	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
+
 		insertAtBegin(30);
 		insertAtBegin(20);
 		insertAtBegin(10);
 		traverse();
 		System.out.println("length : " + findLength());
-		
+
 		insertAtEnd(40);
 		insertAtEnd(50);
 		traverse();
 		System.out.println("length : " + findLength());
-		
-		insertAtAnyPosition(400, 1);
+
+		insertAtAnyPosition(400, 4);
 		traverse();
 		System.out.println("length : " + findLength());
-		
-		System.out.println("delete 200 : ");
-		deleteNode(200);
-		traverse();
-		System.out.println("length : " + findLength());
-		
-		System.out.println("delete 400 : ");
-		deleteNode(400);
-		traverse();
-		System.out.println("length : " + findLength());
-	
+
+//		System.out.println("delete 200 : ");
+//		deleteNode(200);
+//		traverse();
+//		System.out.println("length : " + findLength());
+//		
+//		System.out.println("delete 400 : ");
+//		deleteNode(400);
+//		traverse();
+//		System.out.println("length : " + findLength());
+
 	}
 
 }
