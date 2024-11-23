@@ -100,22 +100,28 @@ public class DoubleEndedLinkedList {
 			prev = current;
 			current = current.next;
 		}
-		if(current.next == null) {
-			prev.next = null;
-		}else {
-			prev.next = current.next;
-			current.next.prev = prev;
+		if(current.val == val ) {
+			if(current.next == null) {
+				prev.next = null;
+			}else {
+				prev.next = current.next;
+				current.next.prev = prev;
+			}
+		}
+		else {
+			System.out.println("Node not found ");
 		}
 		
-		
+		// 1 2 3 4 5
 	}
 
 	public static void traverse() {
 		TwoWayNode current = head;
 		while (current != null) {
-			System.out.println(current.val + " ");
+			System.out.print(current.val + " ");
 			current = current.next;
 		}
+		System.out.println();
 	}
 
 	public static int findLength() {
@@ -165,18 +171,23 @@ public class DoubleEndedLinkedList {
 		traverse();
 		System.out.println("length : " + findLength());
 		
-		System.out.println("deleteNode(70) : ");
+		System.out.print("deleteNode(70) : ");
 		deleteNode(70);
 		traverse();
 		System.out.println("length : " + findLength());
 		
-		System.out.println("deleteNode(0) : ");
+		System.out.print("deleteNode(0) : ");
 		deleteNode(0);
 		traverse();
 		System.out.println("length : " + findLength());
 
-		System.out.println("deleteNode(80) : ");
+		System.out.print("deleteNode(80) : ");
 		deleteNode(80);
+		traverse();
+		System.out.println("length : " + findLength());
+		
+		System.out.print("deleteNode(800) : ");
+		deleteNode(800);
 		traverse();
 		System.out.println("length : " + findLength());
 
