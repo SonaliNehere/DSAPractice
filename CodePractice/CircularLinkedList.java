@@ -17,27 +17,27 @@ public class CircularLinkedList {
 	// 0 1 2 3 4
 
 	public static void insertAtBegin(int val) {
-		Node1 newNode1 = new Node1(val);
+		Node1 newNode = new Node1(val);
 
 		if (head == null) {
-			head = newNode1;
+			head = newNode;
 			head.next = head;
 			return;
 		}
 		// 0 1 2 3
-		newNode1.next = head;
+		newNode.next = head;
 		Node1 current = head;
 		while (current.next != head) {
 			current = current.next;
 		}
-		head = newNode1;
+		head = newNode;
 		current.next = head;
 	}
 
 	public static void insertAtEnd(int val) {
-		Node1 newNode1 = new Node1(val);
+		Node1 newNode = new Node1(val);
 		if(head == null) {
-			head = newNode1;
+			head = newNode;
 			head.next = head;
 		}
 		
@@ -45,15 +45,15 @@ public class CircularLinkedList {
 		while(current.next != head) {
 			current = current.next;
 		}
-		current.next = newNode1;
-		newNode1.next = head;
+		current.next = newNode;
+		newNode.next = head;
 	}
 
 	public static void insertAtAnyPosition(int val, int position) {
-		Node1 newNode1 = new Node1(val);
+		Node1 newNode = new Node1(val);
 	
 		if(head == null) {
-			head = newNode1;
+			head = newNode;
 			head.next = head;
 			return;
 		}
@@ -71,12 +71,12 @@ public class CircularLinkedList {
 		}
 		
 		if(current.next == null) {
-			newNode1.next = null;
-			current.next = newNode1;
+			newNode.next = null;
+			current.next = newNode;
 		}
 		else {
-			newNode1.next = current.next;
-			current.next = newNode1;
+			newNode.next = current.next;
+			current.next = newNode;
 		}
 		
 		// 0 1 2 3 4 5
