@@ -3,7 +3,7 @@ circular linked list - insert at start , end, any position, delete , traverse, l
 double ended linked list - insert at start , end , any position, traverse ,delete , traverse, length done 
 double ended circular linked list - insert at start , end , any position, traverse ,delete , traverse, length done 
 stack - push , pop, traverse, length, peek element using array and linked list done
-queue
+queue - push , pop, traverse, length, peek element using array and linked list done
 tree
 sorting techniques
 graph
