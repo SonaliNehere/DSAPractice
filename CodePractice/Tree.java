@@ -1,5 +1,9 @@
 package Practice;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
+
 class TreeNode {
 	int val;
 	TreeNode left;
@@ -60,14 +64,14 @@ public class Tree {
 			}
 		}
 	}
-	
+
 	public void pop(int val) {
 		if (root == null) {
 			System.out.println("Tree is empty.");
 			return;
 		}
-		
-		if(root.val == val) {
+
+		if (root.val == val) {
 			root = null;
 			return;
 		}
@@ -92,51 +96,44 @@ public class Tree {
 	}
 
 	public static void popTraverse(TreeNode current, int val, TreeNode parent) {
-		if(current.val == val) {
+		if (current.val == val) {
 			if (current.val < parent.val) {
-				if(current.left == null && current.right==null) {
+				if (current.left == null && current.right == null) {
 					parent.left = null;
 					System.out.println(current.val + " deleted.");
 					return;
-				}
-				else {
-					if(current.left == null) {
+				} else {
+					if (current.left == null) {
 						parent.left = current.right;
 						return;
-					}
-					else if(current.right == null) {
+					} else if (current.right == null) {
 						parent.left = current.left;
 						return;
-					}
-					else {
+					} else {
 						parent.left = current.right;
 						return;
 					}
 				}
-			}
-			else {
-				if(current.left == null && current.right==null) {
+			} else {
+				if (current.left == null && current.right == null) {
 					parent.right = null;
 					System.out.println(current.val + " deleted.");
 					return;
-				}
-				else {
-					if(current.left == null) {
+				} else {
+					if (current.left == null) {
 						parent.right = current.right;
 						return;
-					}
-					else if(current.right == null){
+					} else if (current.right == null) {
 						parent.right = current.left;
 						return;
-					}
-					else {
+					} else {
 						parent.right = current.right;
 						return;
 					}
 				}
 			}
 		}
-		
+
 		if (val < current.val) {
 			if (current.left == null) {
 				return;
@@ -193,6 +190,54 @@ public class Tree {
 
 	}
 
+	public void BSFTraversal(TreeNode root) {
+		if (root == null) {
+			System.out.println("Tree is empty.");
+			return;
+		}
+
+		Queue<TreeNode> queue = new LinkedList<TreeNode>();
+		queue.add(root);
+
+		while (!queue.isEmpty()) {
+			TreeNode current = queue.poll();
+			System.out.print(current.val + " ");
+			if (current.left != null) {
+				queue.add(current.left);
+			}
+
+			if (current.right != null) {
+				queue.add(current.right);
+			}
+		}
+
+	}
+	
+	public void ReverseBSFTraversal(TreeNode root) {
+		if (root == null) {
+			System.out.println("Tree is empty.");
+			return;
+		}
+
+		Queue<TreeNode> queue = new LinkedList<TreeNode>();
+		queue.add(root);
+
+		while (!queue.isEmpty()) {
+			TreeNode current = queue.poll();
+			System.out.print(current.val + " ");
+			
+			if (current.right != null) {
+				queue.add(current.right);
+			}
+			
+			if (current.left != null) {
+				queue.add(current.left);
+			}
+			
+		}
+
+	}
+
 //	public void traverse() {
 //		inOrderTraversal(root);
 //	}
@@ -221,36 +266,44 @@ public class Tree {
 		tree.push(18);
 		tree.inOrderTraversal(root);
 		System.out.println("\n");
-		
+
 		System.out.println("Push 15");
 		tree.push(15);
 		tree.inOrderTraversal(root);
 		System.out.println("\n");
-		
+
 		System.out.println("Push 25");
 		tree.push(25);
 		tree.inOrderTraversal(root);
 		System.out.println("\n");
-		
+
 		System.out.println("Push 22");
 		tree.push(22);
 		tree.inOrderTraversal(root);
 		System.out.println("\n");
-		
+
 		System.out.println("Push 19");
 		tree.push(19);
 		tree.inOrderTraversal(root);
 		System.out.println("\n");
-		
+
 		System.out.println("Push 26");
 		tree.push(26);
 		tree.inOrderTraversal(root);
 		System.out.println("\n");
-		
-		System.out.println("Pop 25");
-		tree.pop(25);
-		tree.inOrderTraversal(root);
+
+		System.out.println("BSF : ");
+		tree.BSFTraversal(root);
 		System.out.println("\n");
+		
+		System.out.println("Reverse BSF : ");
+		tree.ReverseBSFTraversal(root);
+		System.out.println("\n");
+
+//		System.out.println("Pop 25");
+//		tree.pop(25);
+//		tree.inOrderTraversal(root);
+//		System.out.println("\n");
 
 	}
 
