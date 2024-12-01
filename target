@@ -6,6 +6,8 @@ stack - push , pop, traverse, length, peek element using array and linked list d
 queue - push , pop, traverse, length, peek element using array and linked list done
 circular queue - push , pop, traverse, length, peek element using array done
 tree - push, traverse done
+array problems
+string problems
 sorting techniques
 linkedlist problems
 stack problems
@@ -13,4 +15,5 @@ queue problems
 tree problems and others
 daily one leetcode
 complete course
+maximum subarray sum
 
