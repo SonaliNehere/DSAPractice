@@ -1,3 +1,4 @@
 1. Single Number - Input: nums = [2,2,1]
                    Output: 1
                    i soloved using hashmap. but xor is best approach 
+2. Reverse Linked List - uses variable prev , current, next 
