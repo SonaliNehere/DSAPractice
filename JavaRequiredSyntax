@@ -1,1 +1,66 @@
-Java 
+1. String :
+    str.length()
+    String.valueOf(123) - convert any data type into string
+    str.contains("abc")
+    str.charAt(i)
+
+2. StringBuilder : 
+      StringBuilder newString = new StringBuilder(str);
+      char c;
+      Character.isLetterOrDigit(c)
+      Character.toUpperCase(c)
+
+3. Math : 
+    Math.min(a, b)
+    Math.max(a, b)
+
+4. Stack : 
+      Stack<Character> st = new Stack();
+      st.push('a')
+      st.isEmpty()
+      st.peek()
+      st.pop()
+
+5. HashMap :
+        HashMap<String, Integer> map = new HashMap();
+        map.put(key, m1.getOrDefault(key, 0) + 1);
+        map.get(key)
+        map.size()
+
+        iterate map : 
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+          return entry.getKey() + entry.getValue();
+        }
+
+        for (String key : map.keySet()) {
+            System.out.println("Key: " + key);
+        }
+
+        for (String value : map.values()) {
+            System.out.println("Value: " + value);
+        }
+
+        Iterator<Map.Entry<String, String>> iterator = map.entrySet().iterator();
+        while (iterator.hasNext()) {
+          Map.Entry<String, String> entry = iterator.next();
+          System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue());
+          iterator.remove(); // Removes the entry from the map
+        }
+
+        Using Java 8 Streams
+        map.forEach((key, value) -> System.out.println("Key: " + key + ", Value: " + value));
+
+
+        Using a forEach Loop in Java 8+        
+        map.entrySet().forEach(entry -> 
+        System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue()));
+
+
+
+
+6. HashSet : 
+        HashSet<Integer> set = new HashSet<>();
+        set.contains(num)
+        set.add(num)
+
+
