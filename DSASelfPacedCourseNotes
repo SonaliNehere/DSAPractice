@@ -8,3 +8,4 @@
 
 		return gcd(b, a % b);
 	}
+2. Moore's voting algorithm - find majority element in array
