@@ -1,3 +1,4 @@
+Array
 1. Euclidean Algoritm - An efficient method to compute the Greatest Common Divisor (GCD) of two integers.
         Given two numbers a and 𝑏(𝑎 > 𝑏 ), repeatedly subtract b from a or 
   use 𝑎%𝑏 until the remainder is 0. The last non-zero remainder is the GCD.
@@ -39,6 +40,10 @@
     	return res; 
     }
 
-3. Window sliding technique - 
+3. Window sliding technique -
+
+4. Prefix sum technique - 
+
+5. Kedans algorithm - 
 
 
