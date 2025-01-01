@@ -13,6 +13,8 @@
 3. Math : 
     Math.min(a, b)
     Math.max(a, b)
+    Integer.MAX_VALUE
+    Integer.MIN_VALUE
 
 4. Stack : 
       Stack<Character> st = new Stack();
