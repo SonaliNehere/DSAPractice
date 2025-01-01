@@ -64,5 +64,6 @@
         HashSet<Integer> set = new HashSet<>();
         set.contains(num)
         set.add(num)
+        use for each to iterate
 
 
