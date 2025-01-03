@@ -66,4 +66,10 @@
         set.add(num)
         use for each to iterate
 
+7. List : 
+    List<Integer> temp = Arrays.asList(nums[i], nums[j], nums[k]);
+    Collections.sort(temp); 
+    if (set.add(temp)) { list.add(temp); }
+
+
 
