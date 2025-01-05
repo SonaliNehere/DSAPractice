@@ -70,6 +70,7 @@
     List<Integer> temp = Arrays.asList(nums[i], nums[j], nums[k]);
     Collections.sort(temp); 
     if (set.add(temp)) { list.add(temp); }
+    list.contains(10)
 
 
 
