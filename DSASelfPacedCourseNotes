@@ -72,5 +72,9 @@ Array
 6. Two Pointer Approach - 
 	Find pair of given sum in sorted array
 
+7. Sorting Technique - 
+	Bubble sort - Bubble Sort is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements, and
+		swaps them if they are in the wrong order. This process is repeated until the list is sorted.
+
 
 
