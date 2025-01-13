@@ -77,9 +77,13 @@ Array
 		swaps them if they are in the wrong order. This process is repeated until the list is sorted. So one by one last element 
 		will be sort or we can say that maximum elemnt will be placed at last. 
 		This process "bubbles" the largest (or smallest) element to its correct position in each pass.
+		Stable?: Yes.
 
 	Selection sort - Selection Sort is a comparison-based sorting algorithm that repeatedly selects the smallest (or largest) 
 		element from the unsorted part of the array and places it at the correct position in the sorted part.
+		Stable?: No.
+
+	Insertion sort - 
 
 
 
