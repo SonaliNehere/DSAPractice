@@ -84,6 +84,9 @@ Array
 		Stable?: No.
 
 	Insertion sort - 
+		Insertion Sort is a comparison-based sorting algorithm that builds the final sorted array one element at a time by 
+			picking elements from the unsorted part and placing them in their correct position in the sorted part.
+		Stable?: Yes.
 
 
 
