@@ -108,10 +108,11 @@ Array
 		Lomuto Partition : The Lomuto partition scheme is a method used in quicksort to partition an array. It selects a pivot
 			(commonly the last element of the array) and rearranges the elements such that all elements smaller than the
 			pivot come before it and all greater elements come after it.
-			e.g. kth smallest element
+			e.g. kth smallest element, sort array with two types of elements
 
 		Hoare Partition : The Hoare partition scheme is another method used in quicksort to partition an array. It uses two 
 			pointers: one starting from the beginning and the other from the end, moving inward until they meet.
+			e.g. sort array with two types of elements
 		
 
 
