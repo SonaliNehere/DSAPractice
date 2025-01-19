@@ -6,6 +6,7 @@
     char c = s.charAt(s.length() - 1); int  l = Integer.valueOf(String.valueOf(c));
     Character.isLetter(ch)
     Character.isDigit(ch)
+    Character.getNumericValue(s.charAt(i));
 
 2. StringBuilder : 
       StringBuilder newString = new StringBuilder(str);
