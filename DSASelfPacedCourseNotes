@@ -117,6 +117,20 @@ Array
 		Dutch National flag algorithm : 
 			e.g. sort array with three types of elements.
 
+	Cycle sort - Cycle Sort is a comparison-based sorting algorithm that is useful when we are asked to minimize the number of memory writes. Unlike some 
+		other in-place sorting algorithms, Cycle Sort is theoretically optimal in terms of the number of writes, making it useful in scenarios where write
+		operations are costly.
+		How Cycle Sort Works
+		Cycle detection: A cycle begins at a position where the current element is not in its correct position.
+		Place the element: Swap the element to its correct position by counting how many elements are less than the current element.
+		Cycle rotation: Rotate the remaining cycle to place other elements in their correct positions.
+		Repeat: Move to the next position and repeat the process for all elements.
+		Time Complexity :
+			Best Case: 𝑂(𝑛^2)
+			Worst Case:  𝑂(𝑛^2)
+			Space Complexity: 𝑂(1) (in-place sorting)
+			Optimal writes: Performs the minimal number of writes.
+
 		
 
 
