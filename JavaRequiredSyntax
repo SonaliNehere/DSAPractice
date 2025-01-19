@@ -9,6 +9,7 @@
       char c;
       Character.isLetterOrDigit(c)
       Character.toUpperCase(c)
+      str.setCharAt(i, str.charAt(j));
 
 3. Math : 
     Math.min(a, b)
