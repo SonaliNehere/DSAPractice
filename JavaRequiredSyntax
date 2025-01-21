@@ -77,5 +77,8 @@
     if (set.add(temp)) { list.add(temp); }
     list.contains(10)
 
+8. Array : 
+    System.arraycopy(temp, 0, arr, 0, n);
+
 
 
