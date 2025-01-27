@@ -70,6 +70,7 @@
         set.contains(num)
         set.add(num)
         use for each to iterate
+        HashSet<Integer> set = new HashSet<>(Arrays.asList(nums));
 
 7. List : 
     List<Integer> temp = Arrays.asList(nums[i], nums[j], nums[k]);
@@ -79,6 +80,7 @@
 
 8. Array : 
     System.arraycopy(temp, 0, arr, 0, n);
+    
 
 
 
