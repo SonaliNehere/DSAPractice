@@ -579,3 +579,131 @@
 # x = "hello"
 # if not type(x) is int:
 #   raise TypeError("Only integers are allowed")
+
+# decorators
+# A decorator is a function that takes another function as an argument, adds some functionality, and returns the
+# modified function.
+# def my_decorator(func):
+#     def wrapper():
+#         print("Something before the function runs")
+#         func()
+#         print("Something after the function runs")
+#     return wrapper
+#
+# @my_decorator  # Applying decorator
+# def say_hello():
+#     print("Hello!")
+# say_hello()
+# Here, @my_decorator is syntactic sugar for say_hello = my_decorator(say_hello).
+
+# Decorators with Arguments
+# If the function takes arguments, we need to modify the wrapper function to accept *args and **kwargs.
+# def my_decorator(func):
+#     def wrapper(*args, **kwargs):
+#         print("Before function call")
+#         result = func(*args, **kwargs)
+#         print("After function call")
+#         return result
+#     return wrapper
+#
+# @my_decorator
+# def add(a, b):
+#     return a + b
+#
+# print(add(5, 3))
+
+ # Multiple Decorators
+# You can apply multiple decorators to a single function.
+# def uppercase_decorator(func):
+#     def wrapper():
+#         return func().upper()
+#     return wrapper
+#
+# def exclamation_decorator(func):
+#     def wrapper():
+#         return func() + "!!!"
+#     return wrapper
+#
+# @uppercase_decorator
+# @exclamation_decorator
+# def greet():
+#     return "hello"
+#
+# print(greet())
+
+# Class-Based Decorators
+# You can also create decorators using classes by defining the __call__ method.
+# class MyDecorator:
+#     def __init__(self, func):
+#         self.func = func
+#
+#     def __call__(self, *args, **kwargs):
+#         print("Before function call")
+#         result = self.func(*args, **kwargs)
+#         print("After function call")
+#         return result
+#
+# @MyDecorator
+# def greet(name):
+#     print(f"Hello, {name}")
+#
+# greet("Sonali")
+
+# inbuilt decorators
+# 1. @staticmethod
+# Used inside a class to define a method that does not require self or cls.
+# class MyClass:
+#     @staticmethod
+#     def greet():
+#         print("Hello from static method!")
+# MyClass.greet()  # No need to create an instance
+
+# 2. @classmethod
+# Used when a method needs access to the class (cls) but not the instance (self).
+# class MyClass:
+#     count = 0  # Class variable
+#
+#     @classmethod
+#     def increment_count(cls):
+#         cls.count += 1
+#         print(f"Count: {cls.count}")
+#
+# MyClass.increment_count()
+# MyClass.increment_count()
+
+# 3. @property
+# Used to define a getter for a class attribute, allowing it to be accessed like an attribute instead of a method.
+# class Person:
+#     def __init__(self, name):
+#         self._name = name  # Private variable
+#
+#     @property
+#     def name(self):
+#         return self._name  # Acts like an attribute
+#
+# p = Person("Sonali")
+# print(p.name)  # Access without parentheses
+#
+# # 4. @name.setter
+# # Used to create a setter for a property, allowing controlled modification of a private variable.
+#
+# class Person:
+#     def __init__(self, name):
+#         self._name = name
+#
+#     @property
+#     def name(self):
+#         return self._name
+#
+#     @name.setter
+#     def name(self, new_name):
+#         if len(new_name) < 3:
+#             print("Name is too short!")
+#         else:
+#             self._name = new_name
+#
+# p = Person("Sonali")
+# p.name = "Si"   # Too short
+# p.name = "Sia"  # Valid
+# print(p.name)
+
