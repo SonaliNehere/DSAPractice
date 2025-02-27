@@ -7,6 +7,10 @@
     Character.isLetter(ch)
     Character.isDigit(ch)
     Character.getNumericValue(s.charAt(i));
+    num.charAt(i) - '0'
+        - Converts the character into its numeric value.
+        - Since '0' has an ASCII value of 48, subtracting '0' from a digit character converts it to an integer.
+        - Example: '4' - '0' = 52 - 48 = 4, '7' - '0' = 55 - 48 = 7
 
 2. StringBuilder : 
       StringBuilder newString = new StringBuilder(str);
