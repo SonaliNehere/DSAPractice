@@ -66,6 +66,23 @@
         map.entrySet().forEach(entry -> 
         System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue()));
 
+        sort in descending order of values :
+            public static Map<String, Integer> sortByValueDescending(Map<String, Integer> map) {
+                // Convert map to list of entries
+                List<Map.Entry<String, Integer>> list = new ArrayList<>(map.entrySet());
+
+                // Sort list by values in descending order
+                list.sort((a, b) -> b.getValue().compareTo(a.getValue()));
+
+                // Put sorted entries back into a LinkedHashMap (to maintain order)
+                Map<String, Integer> sortedMap = new LinkedHashMap<>();
+                for (Map.Entry<String, Integer> entry : list) {
+                    sortedMap.put(entry.getKey(), entry.getValue());
+                }
+
+                return sortedMap;
+            }    
+
 
 
 
